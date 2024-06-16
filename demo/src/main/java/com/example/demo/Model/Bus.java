@@ -3,6 +3,7 @@ package com.example.demo.Model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,9 +28,9 @@ public class Bus {
     public Bus() {
     }
 
-    public Bus(String licencePlate, List<Route> routes) {
+    public Bus(String licencePlate) {
         this.licencePlate = licencePlate;
-        this.routes = routes;
+        this.routes = new ArrayList<>();
     }
 
     public Integer getId() {

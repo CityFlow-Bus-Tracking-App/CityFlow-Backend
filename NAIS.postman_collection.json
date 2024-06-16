@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "cd2b4ac7-5ee5-4161-843d-876f869ba69c",
+		"name": "NAIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18369370"
+	},
+	"item": [
+		{
+			"name": "GraphExample",
+			"item": [
+				{
+					"name": "GetAllMovies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMoviesByActorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies.json/acted_in?name=Ice-T",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies.json",
+								"acted_in"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Ice-T"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActorsByYear",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/persons.json/actors_by_year?year=2000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"persons.json",
+								"actors_by_year"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllActors",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "addNewReview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 95,\r\n    \"summary\": \"Everything was perfect\",\r\n    \"movieTitle\": \"The Replacements\",\r\n    \"reviewerName\": \"David Morse\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/persons.json/addNewReview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"persons.json",
+								"addNewReview"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

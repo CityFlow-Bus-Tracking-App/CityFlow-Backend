@@ -1,14 +1,17 @@
 package com.example.demo.Service;
 
+import com.example.demo.DTO.RouteGraphDTO;
 import com.example.demo.Model.User;
 import com.example.demo.Model.UserInfoDetails;
 import com.example.demo.Repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +23,11 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     public User save(User user){
-        return this.userRepository.save(user);
+        //return this.userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        return savedUser;
     }
+
     public User FindByUsername(String username){
         return this.userRepository.getByUsername(username);
     }
@@ -40,8 +46,8 @@ public class UserService implements UserDetailsService {
     }
 
     public User addUser(User userInfo) {
-        userRepository.save(userInfo);
-        return userInfo;
+        User savedUser = userRepository.save(userInfo);
+        return savedUser;
     }
 
     public void deleteById(Integer userId) {
